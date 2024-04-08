@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_08_003243) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_08_004147) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "animais", force: :cascade do |t|
+    t.string "identificador"
+    t.string "genero"
+    t.string "status", default: "triagem"
+    t.bigint "especie_id", null: false
+    t.bigint "recinto_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["especie_id"], name: "index_animais_on_especie_id"
+    t.index ["recinto_id"], name: "index_animais_on_recinto_id"
+  end
 
   create_table "especies", force: :cascade do |t|
     t.string "nome"
@@ -27,4 +39,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_003243) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "animais", "especies", column: "especie_id"
+  add_foreign_key "animais", "recintos"
 end
