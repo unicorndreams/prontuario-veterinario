@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2024-04-07 21:51:05
+  animal: one
+  dados_animal: 
+
+two:
+  data: 2024-04-07 21:51:05
+  animal: two
+  dados_animal: 
