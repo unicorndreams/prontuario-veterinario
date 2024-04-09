@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
 
   has_many :sessions, dependent: :destroy
-  has_many :especies, class_name: "Especie"
+  has_many :especies
   has_many :recintos
   has_many :animais
   has_many :historicos_animais
