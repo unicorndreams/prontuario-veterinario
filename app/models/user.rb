@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
 
   has_many :sessions, dependent: :destroy
+  has_many :especies, class_name: "Especie"
+  has_many :recintos
+  has_many :animais
+  has_many :historicos_animais
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, allow_nil: true, length: { minimum: 12 }
