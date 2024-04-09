@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_08_005447) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_08_235812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,14 +22,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_005447) do
     t.bigint "recinto_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["especie_id"], name: "index_animais_on_especie_id"
     t.index ["recinto_id"], name: "index_animais_on_recinto_id"
+    t.index ["user_id"], name: "index_animais_on_user_id"
   end
 
   create_table "especies", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_especies_on_user_id"
   end
 
   create_table "historicos_animais", force: :cascade do |t|
@@ -38,7 +42,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_005447) do
     t.jsonb "dados_animal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["animal_id"], name: "index_historicos_animais_on_animal_id"
+    t.index ["user_id"], name: "index_historicos_animais_on_user_id"
   end
 
   create_table "recintos", force: :cascade do |t|
@@ -46,6 +52,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_005447) do
     t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_recintos_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -68,6 +76,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_005447) do
 
   add_foreign_key "animais", "especies", column: "especie_id"
   add_foreign_key "animais", "recintos"
+  add_foreign_key "animais", "users"
+  add_foreign_key "especies", "users"
   add_foreign_key "historicos_animais", "animais"
+  add_foreign_key "historicos_animais", "users"
+  add_foreign_key "recintos", "users"
   add_foreign_key "sessions", "users"
 end
