@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "font-awesome";
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -15,3 +16,40 @@
  *= require_tree .
  *= require_self
  */
+.navbar {
+  border-bottom: 1px solid #d0d5cf;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.large-font {
+  font-size: 15px;
+}
+
+.default-color {
+  color: #2F4D0B;
+}
+
+.font-weight-bold {
+  font-weight: 500;
+}
+
+.icon-custom {
+  font-size: 16px;
+}
+
+.unclickable {
+  pointer-events: none;
+  cursor: default;
+}
+
+.navbar-nav .nav-link.show {
+  color: #2F4D0B;
+}
+
+.nav-link:hover {
+  color: #3b5c13;
+}
+
