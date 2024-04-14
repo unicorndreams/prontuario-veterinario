@@ -16,12 +16,36 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-color: #f3f7e4;
+  font-family: 'Inter', sans-serif;
+}
+
+.container-fluid {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .navbar {
   border-bottom: 1px solid #d0d5cf;
 }
 
 .dropdown-toggle::after {
   display: none;
+}
+
+.title {
+  color: #2F4D0B;
+  font-size: 15px;
+}
+
+.small-font {
+  font-size: 12px;
+}
+
+.mid-font {
+  font-size: 14px;
 }
 
 .large-font {
@@ -40,6 +64,23 @@
   font-size: 16px;
 }
 
+.btn-default {
+  background-color: #2F4D0B;
+  color: #FFFFFF;
+}
+
+.btn-default:hover {
+  background-color: #3b5c13;
+  color: #FFFFFF;
+}
+
+.btn-default:active, .btn-default:focus {
+  background-color: #3b5c13 !important;
+  color: #FFFFFF !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .unclickable {
   pointer-events: none;
   cursor: default;
@@ -52,4 +93,12 @@
 .nav-link:hover {
   color: #3b5c13;
 }
+
+.table > thead > tr > th,
+.table > tbody > tr > td,
+.table > tbody > tr > th {
+  background-color: #f3f7e4;
+  border-color: #777676;
+}
+
 

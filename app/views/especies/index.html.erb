@@ -1,0 +1,28 @@
+<div class="row mt-3">
+  <div class="col-md-6 d-flex align-items-center">
+    <h1 class="title">Espécies</h1>
+  </div>
+  <div class="col-md-6">
+    <%= link_to new_especie_path, data: { turbo: false, controller: "especie-modal" }, class: "btn btn-default float-end small-font no-hover" do %>
+      Cadastrar <i class="fa-solid fa-circle-plus"></i>
+    <% end %>
+  </div>
+
+  <div id="error"></div>
+</div>
+
+<h6 style="color: red" class="small-font text-center"><%= alert %></h6>
+
+<table class="table small-font mt-3">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="especies_list" >
+    <% @especies.each do |especie| %>
+      <%= render "especie", especie: especie %>
+    <% end %>
+  </tbody>
+</table>

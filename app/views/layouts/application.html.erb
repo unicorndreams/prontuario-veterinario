@@ -16,5 +16,11 @@
 
   <body>
     <%= render "layouts/navbar" %>
+
+    <div class="container-fluid">
+      <%= yield %>
+
+      <%= turbo_frame_tag "remote_modal" %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,20 @@
+<%= form_with model: especie, id: "especie_form", data: { turbo_frame: "_top" } do |form| %>
+  <div class="modal-body">
+    <% if especie.errors.present? %>
+      <div class="alert alert-danger" role="alert">
+        <% especie.errors.full_messages.each do |message| %>
+          <span class="small-font"><%= message %></span>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="form-group col-md-5">
+      <%= form.label :nome, class: "small-font font-weight-bold" %><br>
+      <%= form.text_field :nome, class: "form-control small-font" %>
+    </div>
+  </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary small-font" data-bs-dismiss="modal">Cancelar</button>
+    <%= form.submit "Salvar", class: "btn btn-default small-font", data: { action: "click->bs-modal#submitEnd" } %>
+  </div>
+<% end %>
+
