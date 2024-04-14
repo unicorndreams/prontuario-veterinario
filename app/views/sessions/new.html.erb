@@ -1,9 +1,13 @@
 <h1 class="default-color text-center" style="font-size: 20px; margin-top: 100px; margin-bottom: 80px;">Prontuário Veterinário</h1>
 
-<h6 style="color: red" class="small-font text-center"><%= alert %></h6>
-
 <div class="d-flex justify-content-center align-items-center">
   <div class="col-md-3">
+    <% if alert.present? %>
+      <div class="alert alert-danger" role="alert">
+        <span class="small-font"><%= alert %></span>
+      </div>
+    <% end %>
+    
     <%= form_with(url: sign_in_path) do |form| %>
       <div class="form-group">
         <%= form.email_field :email, value: params[:email_hint], required: true, autofocus: true, autocomplete: "email", class: "form-control mid-font", id: "exampleInputEmail1", placeholder: "Email" %>
