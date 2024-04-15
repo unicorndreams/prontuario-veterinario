@@ -85,6 +85,11 @@ body {
   box-shadow: none !important;
 }
 
+.btn:disabled {
+  background-color: #3b5c13;
+  color: #FFFFFF;
+}
+
 .unclickable {
   pointer-events: none;
   cursor: default;

@@ -1,0 +1,35 @@
+<%= form_with model: animal, id: "animal_form", data: { turbo_frame: "_top" } do |form| %>
+  <div class="modal-body">
+    <% if animal.errors.present? %>
+      <div class="alert alert-danger" role="alert">
+        <% animal.errors.full_messages.each do |message| %>
+          <span class="small-font"><%= message %></span><br>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="form-group col-md-5">
+        <%= form.label :identificador, class: "small-font font-weight-bold" %>
+        <%= form.text_field :identificador, class: "form-control small-font" %>
+      </div>
+      <div class="form-group col-md-5">
+        <%= form.label "Espécie", class: "small-font font-weight-bold" %>
+        <%= form.collection_select :especie_id, Especie.all, :id, :nome, { prompt: "Selecione uma espécie" }, { class: "form-select small-font" } %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="form-group col-md-5">
+        <%= form.label "Gênero", class: "small-font font-weight-bold" %>
+        <%= form.select :genero, Animal.genero.options, { include_blank: "Selecione o gênero" }, { class: "form-select small-font" } %>
+      </div>
+      <div class="form-group col-md-5">
+        <%= form.label :recinto, class: "small-font font-weight-bold" %>
+        <%= form.collection_select :recinto_id, Recinto.all, :id, :nome, { prompt: "Selecione um recinto" }, { class: "form-select small-font" } %>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary small-font" data-bs-dismiss="modal">Cancelar</button>
+    <%= form.submit "Salvar", class: "btn btn-default small-font", data: { action: "click->bs-modal#submitEnd" } %>
+  </div>
+<% end %>

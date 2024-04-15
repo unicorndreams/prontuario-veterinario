@@ -1,0 +1,35 @@
+<div class="row mt-4">
+  <%= render "filtro" %>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-6 d-flex align-items-center">
+    <h1 class="title">Animais</h1>
+  </div>
+  <div class="col-md-6">
+    <%= link_to new_animal_path, data: { turbo: false, controller: "animal-modal" }, class: "btn btn-default float-end small-font" do %>
+      Cadastrar <i class="fa-solid fa-circle-plus"></i>
+    <% end %>
+  </div>
+
+  <div id="error"></div>
+</div>
+
+<table class="table small-font mt-3">
+  <thead>
+    <tr>
+      <th class="col-md-2">Identificador</th>
+      <th class="col-md-2">Espécie</th>
+      <th class="col-md-2">Gênero</th>
+      <th class="col-md-2">Recinto</th>
+      <th class="col-md-2">Status</th>
+      <th class="col-md-2">Histórico</th>
+      <th class="col-md-1"></th>
+    </tr>
+  </thead>
+  <tbody id="animais_list" >
+    <% @animais.each do |animal| %>
+      <%= render "animal", animal: animal %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,36 @@
+<%= form_with url: animais_path, method: :get do |form| %>
+  <div class="card">
+    <div class="card-body pb-5">
+      <div class="row">
+        <div class="form-group col-md-4">
+          <%= form.label :identificador, class: "small-font font-weight-bold" %>
+          <%= form.text_field :identificador, class: "form-control small-font", placeholder: "Digite o identificador" %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= form.label "Espécie", class: "small-font font-weight-bold" %>
+          <%= form.collection_select :especie_id, Especie.all, :id, :nome, { prompt: "Selecione a espécie" }, { class: "form-select small-font" } %>
+        </div>
+          <div class="form-group col-md-4">
+          <%= form.label "Gênero", class: "small-font font-weight-bold" %>
+          <%= form.select :genero, Animal.genero.options, { include_blank: "Selecione o gênero" }, { class: "form-select small-font" } %>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="form-group col-md-4">
+          <%= form.label :recinto, class: "small-font font-weight-bold" %>
+          <%= form.collection_select :recinto_id, Recinto.all, :id, :nome, { prompt: "Selecione o recinto" }, { class: "form-select small-font" } %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= form.label :status, class: "small-font font-weight-bold" %>
+          <%= form.select :status, Animal.status.options, { include_blank: "Selecione o status" }, { class: "form-select small-font" } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2">
+    <%= form.button :commit, class: "btn btn-default float-end small-font", style: "margin-left: 10px;" do %>
+      Pesquisar <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
+    <%= link_to 'Limpar Filtro', animais_path, class: "btn btn-default float-end small-font" %>
+  </div>
+<% end %>

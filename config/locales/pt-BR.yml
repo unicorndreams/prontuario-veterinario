@@ -1,5 +1,9 @@
 pt-BR:
   activerecord:
+    attributes:
+      animal:
+        especie: "Espécie"
+        genero: "Gênero"
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -225,3 +229,11 @@ pt-BR:
   tipos_recinto:
     ambulatorio: "Ambulatório"
     sala_de_quarentena: "Sala de quarentena"
+  animais_genero:
+    macho: "M"
+    femea: "F"
+  animais_status:
+    triagem: "Triagem"
+    em_tratamento: "Em tratamento"
+    aguardando_soltura: "Aguardando soltura"
+    obito: "Óbito"
