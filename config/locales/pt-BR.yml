@@ -222,3 +222,6 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: pm
+  tipos_recinto:
+    ambulatorio: "Ambulatório"
+    sala_de_quarentena: "Sala de quarentena"

@@ -31,6 +31,10 @@ body {
   border-bottom: 1px solid #d0d5cf;
 }
 
+.navbar-drop-item {
+  font-size: 13px;
+}
+
 .dropdown-toggle::after {
   display: none;
 }

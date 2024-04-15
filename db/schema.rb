@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_08_235812) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_15_000708) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,10 +49,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_235812) do
 
   create_table "recintos", force: :cascade do |t|
     t.string "nome"
-    t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.integer "tipo"
     t.index ["user_id"], name: "index_recintos_on_user_id"
   end
 
@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_235812) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "animais", "especies", column: "especie_id"
+  add_foreign_key "animais", "especies"
   add_foreign_key "animais", "recintos"
   add_foreign_key "animais", "users"
   add_foreign_key "especies", "users"

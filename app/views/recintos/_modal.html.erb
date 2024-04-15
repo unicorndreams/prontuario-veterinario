@@ -1,0 +1,13 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+<div class="modal" tabindex="-1" data-controller="bs-modal">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title small-font default-color">Cadastro de recinto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= render "form", recinto: recinto %> 
+    </div>
+  </div>
+</div>
+<% end %>
