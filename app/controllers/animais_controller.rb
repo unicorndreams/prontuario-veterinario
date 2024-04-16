@@ -1,5 +1,5 @@
 class AnimaisController < ApplicationController
-  before_action :set_animal, only: [:edit, :update, :destroy, :activation_animal]
+  before_action :set_animal, only: [:edit, :update, :destroy, :activation_animal, :historic]
 
   def index
     params[:ativo] ||= true
@@ -66,6 +66,10 @@ class AnimaisController < ApplicationController
         format.turbo_stream { render turbo_stream: turbo_stream.replace("error", partial: "shared/error", locals: { error: "Ocorreu um erro ao atualizar o animal." }) }
       end
     end
+  end
+
+  def historic
+    @historicos_animal = PaperTrail::Version.where(item_id: @animal.id, item_type: "Animal").order(created_at: :desc)
   end
 
   private
