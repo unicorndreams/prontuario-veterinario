@@ -80,3 +80,5 @@ gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'font-awesome-sass', '~> 6.5', '>= 6.5.2'
 
 gem "enumerize"
+
+gem "paper_trail"
