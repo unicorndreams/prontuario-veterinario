@@ -1,4 +1,6 @@
 class Animal < ApplicationRecord
+  has_paper_trail on: [:create, :update]
+
   extend Enumerize
 
   belongs_to :especie
