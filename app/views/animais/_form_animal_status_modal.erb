@@ -14,7 +14,7 @@
       </div>
       <div class="form-group col-md-5">
         <%= form.label :recinto, class: "small-font font-weight-bold" %>
-        <%= form.collection_select :recinto_id, Recinto.all, :id, :nome, { prompt: "Selecione um recinto" }, { class: "form-select small-font" } %>
+        <%= form.collection_select :recinto_id, Recinto.all, :id, :nome, { include_blank: "Selecione um recinto" }, { class: "form-select small-font" } %>
       </div>
     </div>
     <div class="row mt-2">
