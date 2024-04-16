@@ -4,7 +4,7 @@ class Animal < ApplicationRecord
   extend Enumerize
 
   belongs_to :especie
-  belongs_to :recinto
+  belongs_to :recinto, optional: true
   belongs_to :user
   has_many :historicos_animal, class_name: "HistoricoAnimal", dependent: :destroy
 
