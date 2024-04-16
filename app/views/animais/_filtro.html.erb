@@ -24,6 +24,10 @@
           <%= form.label :status, class: "small-font font-weight-bold" %>
           <%= form.select :status, Animal.status.options, { include_blank: "Selecione o status" }, { class: "form-select small-font" } %>
         </div>
+        <div class="form-group col-md-4">
+          <%= form.label :Ativo, class: "small-font font-weight-bold" %>
+          <%= form.select :ativo, { "Sim" => true, "Não" => false }, { selected: "Sim" }, { class: "form-select small-font" } %>
+        </div>
       </div>
     </div>
   </div>

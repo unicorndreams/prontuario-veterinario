@@ -17,6 +17,7 @@ class Animal < ApplicationRecord
   enumerize :genero, in: { macho: 1, femea: 2  }, i18n_scope: "animais_genero", scope: true
   enumerize :status, in: { triagem: 1, aguardando_soltura: 2, obito: 3 }, i18n_scope: "animais_status", scope: true
 
+  scope :ativos, ->(ativo) { where(ativo: ativo) }
   scope :por_identificador, ->(identificador) { where("identificador ILIKE ?", "%#{identificador}%") if identificador.present? }
   scope :por_especie, ->(especie_id) { where(especie_id: especie_id) if especie_id.present? }
   scope :por_genero, ->(genero) { where(genero: genero) if genero.present? }

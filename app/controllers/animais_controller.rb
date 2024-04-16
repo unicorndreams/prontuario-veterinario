@@ -2,9 +2,12 @@ class AnimaisController < ApplicationController
   before_action :set_animal, only: [:edit, :update, :destroy, :activation_animal]
 
   def index
+    params[:ativo] ||= true
+
     @animais = current_user
                .animais
-               .includes(:especie, :recinto, :historicos_animal)
+               .includes(:especie, :recinto)
+               .ativos(trata_boolean(params[:ativo]))
                .por_identificador(params[:identificador].to_s)
                .por_especie(params[:especie_id].to_s)
                .por_genero(params[:genero].to_s)
