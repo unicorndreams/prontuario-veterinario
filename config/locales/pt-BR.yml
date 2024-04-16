@@ -234,6 +234,7 @@ pt-BR:
     femea: "F"
   animais_status:
     triagem: "Triagem"
-    em_tratamento: "Em tratamento"
+    em_reabilitacao: "Em reabilitação"
     aguardando_soltura: "Aguardando soltura"
+    soltura: "Soltura"
     obito: "Óbito"
