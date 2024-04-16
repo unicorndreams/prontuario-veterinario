@@ -16,7 +16,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_15_232047) do
 
   create_table "animais", force: :cascade do |t|
     t.string "identificador"
-    t.string "status", default: "triagem"
     t.bigint "especie_id", null: false
     t.bigint "recinto_id", null: false
     t.datetime "created_at", null: false
@@ -24,6 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_15_232047) do
     t.bigint "user_id"
     t.integer "genero"
     t.boolean "ativo", default: true
+    t.integer "status", default: 1
     t.index ["especie_id"], name: "index_animais_on_especie_id"
     t.index ["recinto_id"], name: "index_animais_on_recinto_id"
     t.index ["user_id"], name: "index_animais_on_user_id"

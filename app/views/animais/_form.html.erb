@@ -27,6 +27,12 @@
         <%= form.collection_select :recinto_id, Recinto.all, :id, :nome, { prompt: "Selecione um recinto" }, { class: "form-select small-font" } %>
       </div>
     </div>
+    <div class="row mt-2">
+      <div class="form-group col-md-5">
+        <%= form.label :status, class: "small-font font-weight-bold" %>
+        <%= form.select :status, { "Triagem" => "triagem" } , { selected: :triagem }, { class: "form-select small-font", disabled: true } %>
+      </div>
+    </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary small-font" data-bs-dismiss="modal">Cancelar</button>

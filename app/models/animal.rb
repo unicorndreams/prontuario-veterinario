@@ -11,7 +11,7 @@ class Animal < ApplicationRecord
   validates :genero, presence: true
 
   enumerize :genero, in: { macho: 1, femea: 2  }, i18n_scope: "animais_genero", scope: true
-  enumerize :status, in: { triagem: 1, aguardando_soltura: 2, obito: 3  }, i18n_scope: "animais_status", scope: true
+  enumerize :status, in: { triagem: 1, aguardando_soltura: 2, obito: 3 }, i18n_scope: "animais_status", scope: true
 
   scope :por_identificador, ->(identificador) { where("identificador ILIKE ?", "%#{identificador}%") if identificador.present? }
   scope :por_especie, ->(especie_id) { where(especie_id: especie_id) if especie_id.present? }
