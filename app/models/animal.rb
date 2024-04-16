@@ -12,6 +12,8 @@ class Animal < ApplicationRecord
   validates :identificador, uniqueness: true
   validates :genero, presence: true
 
+  before_save -> { self.status = :triagem if status.blank? }
+
   enumerize :genero, in: { macho: 1, femea: 2  }, i18n_scope: "animais_genero", scope: true
   enumerize :status, in: { triagem: 1, aguardando_soltura: 2, obito: 3 }, i18n_scope: "animais_status", scope: true
 
