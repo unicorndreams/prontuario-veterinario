@@ -13,9 +13,9 @@
     <div class="dropdown">
       <i class="fa-solid fa-ellipsis dropdown-toggle icon-custom" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="float: right"></i>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <%= link_to "Editar", edit_animal_path(animal), data: { turbo: false, controller: "animal-modal" }, class: "dropdown-item small-font" %>
-        <%= link_to "Atualizar status", "#", class: "dropdown-item small-font" %>
         <% if animal.ativo? %>
+          <%= link_to "Editar", edit_animal_path(animal), data: { turbo: false, controller: "animal-modal" }, class: "dropdown-item small-font" %>
+          <%= link_to "Atualizar status", edit_status_animal_path(animal), data: { turbo: false, controller: "animal-status-modal" }, class: "dropdown-item small-font" %>
           <%= link_to "Inativar cadastro", activation_animal_path(animal, ativo: false), data: { turbo_method: :patch }, class: "dropdown-item small-font" %>
         <% else %>
           <%= link_to "Ativar cadastro", activation_animal_path(animal, ativo: true), data: { turbo_method: :patch }, class: "dropdown-item small-font" %>
