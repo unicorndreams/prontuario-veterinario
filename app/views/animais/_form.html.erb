@@ -30,7 +30,7 @@
     <div class="row mt-2">
       <div class="form-group col-md-5">
         <%= form.label :status, class: "small-font font-weight-bold" %>
-        <%= form.select :status, { "Triagem" => "triagem" } , { selected: :triagem }, { class: "form-select small-font", disabled: true } %>
+        <%= form.select :status, Animal.status.options, { selected: @animal.new_record? ? "triagem" : @animal.status }, { class: "form-select small-font", disabled: true } %>
       </div>
     </div>
   </div>
