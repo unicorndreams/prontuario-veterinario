@@ -12,6 +12,8 @@ Things you may want to cover:
   Postgresql 16.2 |
   Rails 7.1.3
 
+* Rodar bundle install no root do projeto
+
 * Database creation: Adicionar username e password do postgres nas configurações development do arquivo database.yml
 
 * Database initialization: rails db:create | rails db:migrate
