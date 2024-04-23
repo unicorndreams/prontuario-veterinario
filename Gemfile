@@ -82,3 +82,4 @@ gem 'font-awesome-sass', '~> 6.5', '>= 6.5.2'
 gem "enumerize"
 
 gem "paper_trail"
+gem "dockerfile-rails", ">= 1.6", :group => :development
