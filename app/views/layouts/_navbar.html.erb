@@ -2,20 +2,20 @@
   <nav class="navbar navbar-expand bg-white">
     <div class="container-fluid">
       <div class="navbar-nav">
-        <a class="nav-link large-font default-color font-weight-bold unclickable" style="padding-left: 0" href="#">Prontuário Veterinário</a>
+        <a class="nav-link mid-font default-color font-weight-bold unclickable" style="padding-left: 0" href="#">Prontuário Veterinário</a>
         <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle default-color large-font font-weight-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle default-color mid-font font-weight-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Controle de Animais
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Animais", animais_path, class: "dropdown-item navbar-drop-item" %>
-            <%= link_to "Espécies", especies_path, class: "dropdown-item navbar-drop-item" %>
-            <%= link_to "Recintos", recintos_path, class: "dropdown-item navbar-drop-item" %>
+            <%= link_to "Animais", animais_path, class: "dropdown-item navbar-drop-item small-font" %>
+            <%= link_to "Espécies", especies_path, class: "dropdown-item navbar-drop-item small-font" %>
+            <%= link_to "Recintos", recintos_path, class: "dropdown-item navbar-drop-item small-font" %>
           </ul>
         </div>
       </div>
       <div class="navbar-nav ml-auto">
-      <%= link_to Current.session, data: { turbo_method: :delete }, class: "nav-link default-color large-font font-weight-bold" do %>
+      <%= link_to Current.session, data: { turbo_method: :delete }, class: "nav-link default-color mid-font font-weight-bold" do %>
         Sair <i class="fa-solid fa-arrow-right-from-bracket icon-custom"></i>
       <% end %>
       </div>
