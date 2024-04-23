@@ -27,7 +27,7 @@ class AnimaisController < ApplicationController
   def update
     respond_to do |format|
       if @animal.update(animal_params)
-        redirect_to animais_path
+        format.html { redirect_to animais_path }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("remote_modal", partial: "animais/modal", locals: { animal: @animal }) }
       end
@@ -39,7 +39,7 @@ class AnimaisController < ApplicationController
 
     respond_to do |format|
       if @animal.save
-        redirect_to animais_path
+        format.html { redirect_to animais_path }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("remote_modal", partial: "animais/modal", locals: { animal: @animal }) }
       end
@@ -61,7 +61,7 @@ class AnimaisController < ApplicationController
 
     respond_to do |format|
       if @animal.update(ativo: ativo)
-        redirect_to animais_path
+        format.html { redirect_to animais_path }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("error", partial: "shared/error", locals: { error: "Ocorreu um erro ao atualizar o animal." }) }
       end
@@ -76,7 +76,7 @@ class AnimaisController < ApplicationController
       animal_params = params[:animal]
 
       if @animal.update(recinto_id: animal_params[:recinto_id], observacoes: animal_params[:observacoes], status: animal_params[:status])
-        redirect_to animais_path
+        format.html { redirect_to animais_path }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("error", partial: "shared/error", locals: { error: "Ocorreu um erro ao atualizar o status do animal." }) }
       end

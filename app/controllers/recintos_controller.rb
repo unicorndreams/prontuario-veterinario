@@ -15,7 +15,7 @@ class RecintosController < ApplicationController
   def update
     respond_to do |format|
       if @recinto.update(recinto_params)
-        format.turbo_stream { redirect_to recintos_path }
+        format.html { redirect_to recintos_path }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("remote_modal", partial: "recintos/modal", locals: { recinto: @recinto }) }
       end
@@ -27,7 +27,7 @@ class RecintosController < ApplicationController
 
     respond_to do |format|
       if @recinto.save
-        redirect_to recintos_path
+        format.html { redirect_to recintos_path }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("remote_modal", partial: "recintos/modal", locals: { recinto: @recinto }) }
       end

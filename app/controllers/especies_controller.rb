@@ -15,7 +15,7 @@ class EspeciesController < ApplicationController
   def update
     respond_to do |format|
       if @especie.update(especie_params)
-        redirect_to especies_path
+        format.html { redirect_to especies_path }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("remote_modal", partial: "especies/modal", locals: { especie: @especie }) }
       end
@@ -27,7 +27,7 @@ class EspeciesController < ApplicationController
 
     respond_to do |format|
       if @especie.save
-        redirect_to especies_path
+        format.html { redirect_to especies_path }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("remote_modal", partial: "especies/modal", locals: { especie: @especie }) }
       end
