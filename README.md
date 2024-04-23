@@ -41,6 +41,7 @@ rails db:migrate
 ```
 
 <b>Inicialização do servidor</b><br>
+- Execute o seguinte comando para inicializar o servidor Rails:
 ```
 rails server
 ```
