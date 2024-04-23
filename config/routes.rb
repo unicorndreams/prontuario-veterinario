@@ -22,7 +22,12 @@ Rails.application.routes.draw do
   resources :especies, except: [:show]
   resources :recintos, except: [:show]
 
-  resources :animais, except: [:show]
+  resources :animais, except: [:show] do
+    collection do
+      get :limpar_filtro
+    end
+  end
+  
   patch "animais/:id/activation_animal", to: "animais#activation_animal", as: "activation_animal"
   get "animais/:id/historic", to: "animais#historic", as: "historicos_animal"
   get "animais/:id/edit_status_animal", to: "animais#edit_status_animal", as: "edit_status_animal"

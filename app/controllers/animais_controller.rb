@@ -1,20 +1,18 @@
 class AnimaisController < ApplicationController
+  before_action :set_filtro, only: :index
   before_action :set_animal, only: [:edit, :update, :destroy, :activation_animal, :historic, :edit_status_animal, :update_status_animal]
 
-  def index
-    params[:ativo] ||= true
-
+  def index  
     @animais = current_user
                .animais
                .includes(:especie, :recinto)
-               .ativos(trata_boolean(params[:ativo]))
-               .por_identificador(params[:identificador].to_s)
-               .por_especie(params[:especie_id].to_s)
-               .por_genero(params[:genero].to_s)
-               .por_recinto(params[:recinto_id].to_s)
-               .por_status(params[:status].to_s)
+               .ativos(trata_boolean(@filtros[:ativo]))
+               .por_identificador(@filtros[:identificador].to_s)
+               .por_especie(@filtros[:especie_id].to_s)
+               .por_genero(@filtros[:genero].to_s)
+               .por_recinto(@filtros[:recinto_id].to_s)
+               .por_status(@filtros[:status].to_s)
                .order(:identificador)
-               
   end
 
   def new
@@ -87,6 +85,12 @@ class AnimaisController < ApplicationController
     @historicos_animal = PaperTrail::Version.where(item_id: @animal.id, item_type: "Animal").order(created_at: :desc)
   end
 
+
+  def limpar_filtro
+    session.delete(:filtros)
+    redirect_to animais_path
+  end
+
   private
 
   def set_animal
@@ -99,5 +103,11 @@ class AnimaisController < ApplicationController
 
   def trata_boolean(string)
     ActiveRecord::Type::Boolean.new.cast(string)
+  end
+
+  def set_filtro
+    session[:filtros] = params.extract!(:ativo, :identificador, :especie_id, :genero, :recinto_id, :status) if params[:commit].present?
+    @filtros = session[:filtros] || {}
+    @filtros[:ativo] ||= true
   end
 end
