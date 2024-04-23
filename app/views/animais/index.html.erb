@@ -15,21 +15,23 @@
   <div id="error"></div>
 </div>
 
-<table class="table small-font mt-3 mb-5">
-  <thead>
-    <tr>
-      <th class="col-md-2">Identificador</th>
-      <th class="col-md-2">Espécie</th>
-      <th class="col-md-2">Gênero</th>
-      <th class="col-md-2">Recinto</th>
-      <th class="col-md-2">Status</th>
-      <th class="col-md-2">Histórico</th>
-      <th class="col-md-1"></th>
-    </tr>
-  </thead>
-  <tbody id="animais_list" >
-    <% @animais.each do |animal| %>
-      <%= render "animal", animal: animal %>
-    <% end %>
-  </tbody>
-</table>
+<div class="table-responsive mt-3 mb-5">
+  <table class="table small-font">
+    <thead>
+      <tr>
+        <th>Identificador</th>
+        <th>Espécie</th>
+        <th>Gênero</th>
+        <th>Recinto</th>
+        <th>Status</th>
+        <th>Histórico</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="animais_list" >
+      <% @animais.each do |animal| %>
+        <%= render "animal", animal: animal %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
