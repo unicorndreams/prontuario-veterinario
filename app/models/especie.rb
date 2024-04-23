@@ -3,5 +3,5 @@ class Especie < ApplicationRecord
   belongs_to :user
 
   validates :nome, presence: true
-  validates :nome, uniqueness: true
+  validates :nome, uniqueness: { scope: :user_id }
 end

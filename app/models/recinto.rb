@@ -5,7 +5,7 @@ class Recinto < ApplicationRecord
   belongs_to :user
 
   validates :nome, :tipo, presence: true
-  validates :nome, uniqueness: true
+  validates :nome, uniqueness: { scope: :user_id }
 
   enumerize :tipo, in: { ambulatorio: 1, sala_de_quarentena: 2  }, i18n_scope: "tipos_recinto", scope: true
 end

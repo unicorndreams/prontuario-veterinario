@@ -9,7 +9,7 @@ class Animal < ApplicationRecord
   has_many :historicos_animal, class_name: "HistoricoAnimal", dependent: :destroy
 
   validates :identificador, presence: true
-  validates :identificador, uniqueness: true
+  validates :identificador, uniqueness: { scope: :user_id }
   validates :genero, presence: true
 
   before_save -> { self.status = :triagem if status.blank? }
