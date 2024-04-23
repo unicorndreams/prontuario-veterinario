@@ -1,22 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<b>Requisitos</b>
+- Ruby 3.3.0
+- PostgreSQL 16.2
+- Rails 7.1.3
+- Node.js 14.21.3
 
-Things you may want to cover:
+<b>Instalação</b>
 
-* Ruby version
-  3.3.0
+- Clone o repositório para sua máquina local:<br>
+```
+git clone https://github.com/camila-santos-ferreira/prontuario-veterinario.git
+```
 
-* System dependencies:
-  Postgresql 16.2 |
-  Rails 7.1.3
+- Navegue até o diretório do projeto:<br>
+```
+cd prontuario-veterinario
+```
 
-* Rodar bundle install no root do projeto
+- Execute o comando abaixo para instalar as dependências do projeto:<br>
+```
+bundle install
+```
 
-* Database creation: Adicionar username e password do postgres nas configurações development do arquivo database.yml
+<b>Configuração do banco de dados</b>
 
-* Database initialization: rails db:create | rails db:migrate
+- Adicione as credenciais do PostgreSQL no arquivo config/database.yml:<br>
+```
+development:
+  <<: *default
+  database: prontuario_veterinario_development
+  username: myusername
+  password: mypassword
+```
 
-* How to run the project: rails server
-  
+- Crie o banco de dados e execute as migrações:
+```
+rails db:create
+rails db:migrate
+```
+
+<b>Inicialização do servidor</b><br>
+```
+rails server
+```
+
+<b>Acesso a aplicação pelo navegador<b><br>
+```
+localhost:3000
+```
