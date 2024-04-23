@@ -8,7 +8,6 @@ class User < ApplicationRecord
     password_salt.last(10)
   end
 
-
   has_many :sessions, dependent: :destroy
   has_many :especies
   has_many :recintos

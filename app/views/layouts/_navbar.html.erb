@@ -15,9 +15,17 @@
         </div>
       </div>
       <div class="navbar-nav ml-auto">
-      <%= link_to Current.session, data: { turbo_method: :delete }, class: "nav-link default-color mid-font font-weight-bold" do %>
-        Sair <i class="fa-solid fa-arrow-right-from-bracket icon-custom"></i>
-      <% end %>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle default-color mid-font font-weight-bold" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-user icon-custom"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
+            <%= link_to "Editar senha", edit_password_path(Current.user), class: "dropdown-item navbar-drop-item small-font" %>
+            <%= link_to Current.session, data: { turbo_method: :delete }, class: "dropdown-item navbar-drop-item small-font" do %>
+              Sair
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>

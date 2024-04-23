@@ -4,6 +4,10 @@ pt-BR:
       animal:
         especie: "Espécie"
         genero: "Gênero"
+      user:
+        password: Senha
+        password_challenge: Senha atual
+        password_confirmation: Confirmação de senha
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
