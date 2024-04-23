@@ -2,7 +2,7 @@
   <td><%= especie.nome %></td>
   <td>
     <div class="dropdown">
-      <i class="fas fa-regular fa-pen-to-square dropdown-toggle icon-custom" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="float: right"></i>
+      <i class="fas fa-regular fa-pen-to-square none-dropdown-toggle icon-custom" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="float: right"></i>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <%= link_to "Editar", edit_especie_path(especie), data: { turbo: false, controller: "especie-modal" }, class: "dropdown-item small-font" %>
         <%= link_to "Excluir", especie_path(especie), data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir esta espécie?" }, class: "dropdown-item small-font" %>
