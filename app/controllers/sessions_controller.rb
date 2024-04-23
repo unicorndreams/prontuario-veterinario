@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
       redirect_to root_path
     else
-      redirect_to sign_in_path(email_hint: params[:email]), alert: "Email/senha inválidos"
+      redirect_to login_path(email_hint: params[:email]), alert: "Email/senha inválidos"
     end
   end
 
