@@ -117,7 +117,7 @@ RSpec.describe EspeciesController, type: :controller do
     end
 
     it 'returns a turbo stream' do
-      delete :destroy, params: {id: especie.to_param}, format: :turbo_stream
+      delete :destroy, params: { id: especie.id }, format: :turbo_stream
       expect(response.content_type).to eq("text/vnd.turbo-stream.html; charset=utf-8")
       expect(response.body).to include("turbo-stream action=\"remove\" target=\"especie-#{especie.id}\"")
     end
