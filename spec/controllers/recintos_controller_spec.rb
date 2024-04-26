@@ -121,5 +121,19 @@ RSpec.describe RecintosController, type: :controller do
       expect(response.content_type).to eq("text/vnd.turbo-stream.html; charset=utf-8")
       expect(response.body).to include("turbo-stream action=\"remove\" target=\"recinto-#{recinto.id}\"")
     end
+
+    context "when the recinto has associated animals" do
+      let!(:animal) { create(:animal, recinto: recinto) }
+
+      it "does not delete the recinto" do
+        delete :destroy, params: { id: recinto.id }, format: :turbo_stream
+        expect(user.recintos.exists?(recinto.id)).to be(true)
+      end
+
+      it "returns a turbo stream with an error message" do
+        delete :destroy, params: { id: recinto.id }, format: :turbo_stream
+        expect(response.body).to include("turbo-stream action=\"replace\" target=\"error\"")
+      end
+    end
   end
 end
