@@ -49,6 +49,8 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
 
   gem 'byebug', '~> 11.1', '>= 11.1.3'
+  gem 'rspec-rails', '~> 6.1.0'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -67,6 +69,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers', '~> 6.0'
 end
 
 gem "authentication-zero", "~> 3.0"
