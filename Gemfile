@@ -51,6 +51,7 @@ group :development, :test do
   gem 'byebug', '~> 11.1', '>= 11.1.3'
   gem 'rspec-rails', '~> 6.1.0'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
