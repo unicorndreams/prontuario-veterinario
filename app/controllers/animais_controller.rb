@@ -49,7 +49,7 @@ class AnimaisController < ApplicationController
       if @animal.destroy
         format.turbo_stream { render turbo_stream: turbo_stream.remove("animal-#{@animal.id}") }
       else
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("error", partial: "shared/error", locals: { error: @animal.errors.full_messages.join(", ") }) }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("error", partial: "shared/error", locals: { error: "Não foi possível excluir o animal." }) }
       end
     end
   end
