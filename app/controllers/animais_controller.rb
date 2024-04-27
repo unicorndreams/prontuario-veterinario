@@ -1,6 +1,6 @@
 class AnimaisController < ApplicationController
   before_action :set_filtro, only: :index
-  before_action :set_animal, only: [:edit, :update, :destroy, :historic, :update_status_animal]
+  before_action :set_animal, only: [:edit, :update, :destroy, :historic, :edit_status_animal, :update_status_animal]
 
   def index  
     @animais = current_user
