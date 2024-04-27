@@ -4,12 +4,12 @@
   <td class="col-md-2"><%= animal.genero.text %></td>
   <td class="col-md-2"><%= animal.recinto&.nome %></td>
   <td class="col-md-2"><%= animal.status.text %></td>
-  <td class="col-md-2">
+  <td class="col-md-1">
     <%= link_to historicos_animal_path(animal), style: "color: #2C2C2C;" , target: "_blank" do %>
       <i class="fa-solid fa-file-medical icon-custom"></i>
     <% end %>
   </td>
-  <td>
+  <td class="col-md-1">
     <div class="dropdown">
       <i class="fa-solid fa-ellipsis none-dropdown-toggle icon-custom" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="float: right"></i>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
