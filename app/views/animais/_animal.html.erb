@@ -16,9 +16,9 @@
         <% if animal.ativo? %>
           <%= link_to "Editar", edit_animal_path(animal), data: { turbo: false, controller: "animal-modal" }, class: "dropdown-item small-font" %>
           <%= link_to "Atualizar status", edit_status_animal_path(animal), data: { turbo: false, controller: "animal-status-modal" }, class: "dropdown-item small-font" %>
-          <%= link_to "Inativar cadastro", activation_animal_path(animal, ativo: false), data: { turbo_method: :patch, turbo_confirm: "Tem certeza que deseja inativar este animal?" }, class: "dropdown-item small-font" %>
+          <%= link_to "Inativar cadastro", ativacao_animal_path(animal, ativo: false), data: { turbo_method: :patch, turbo_confirm: "Tem certeza que deseja inativar este animal?" }, class: "dropdown-item small-font" %>
         <% else %>
-          <%= link_to "Ativar cadastro", activation_animal_path(animal, ativo: true), data: { turbo_method: :patch }, class: "dropdown-item small-font" %>
+          <%= link_to "Ativar cadastro", ativacao_animal_path(animal, ativo: true), data: { turbo_method: :patch }, class: "dropdown-item small-font" %>
         <% end %>
         <%= link_to "Excluir cadastro", animal_path(animal), data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este animal?" }, class: "dropdown-item small-font" %>
       </ul>

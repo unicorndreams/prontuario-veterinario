@@ -1,6 +1,6 @@
 class AnimaisController < ApplicationController
   before_action :set_filtro, only: :index
-  before_action :set_animal, only: [:edit, :update, :destroy, :activation_animal, :historic, :edit_status_animal, :update_status_animal]
+  before_action :set_animal, only: [:edit, :update, :destroy, :historic, :update_status_animal]
 
   def index  
     @animais = current_user
@@ -50,18 +50,6 @@ class AnimaisController < ApplicationController
         format.turbo_stream { render turbo_stream: turbo_stream.remove("animal-#{@animal.id}") }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("error", partial: "shared/error", locals: { error: "Não foi possível excluir o animal." }) }
-      end
-    end
-  end
-
-  def activation_animal
-    ativo = trata_boolean(params[:ativo])
-
-    respond_to do |format|
-      if @animal.update(ativo: ativo)
-        format.html { redirect_to animais_path }
-      else
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("error", partial: "shared/error", locals: { error: "Ocorreu um erro ao atualizar o animal." }) }
       end
     end
   end
