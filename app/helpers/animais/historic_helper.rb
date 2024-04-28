@@ -7,7 +7,8 @@ module Animais
         "genero" => Animal.human_attribute_name(:genero),
         "recinto_id" => Animal.human_attribute_name(:recinto),
         "ativo" => Animal.human_attribute_name(:ativo),
-        "status" => Animal.human_attribute_name(:status)
+        "status" => Animal.human_attribute_name(:status),
+        "observacoes" => Animal.human_attribute_name(:observacoes),
       }[dado_alterado]
     end
 
@@ -18,7 +19,8 @@ module Animais
         "genero" => lambda { Animal.new(genero: alteracao).genero&.text },
         "recinto_id" => lambda { Recinto.find_by(id: alteracao)&.nome },
         "ativo" => lambda { alteracao ? "Sim" : "Não"},
-        "status" => lambda { Animal.new(status: alteracao).status&.text }
+        "status" => lambda { Animal.new(status: alteracao).status&.text },
+        "observacoes" => lambda { alteracao.to_s },
       }[dado_alterado].call
     end
   end

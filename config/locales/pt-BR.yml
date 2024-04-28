@@ -4,6 +4,7 @@ pt-BR:
       animal:
         especie: "Espécie"
         genero: "Gênero"
+        observacoes: "Observações"
       user:
         password: Senha
         password_challenge: Senha atual
