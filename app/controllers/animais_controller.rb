@@ -86,7 +86,7 @@ class AnimaisController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:identificador, :especie_id, :genero, :recinto_id, :ativo, :observacoes)
+    params.require(:animal).permit(:identificador, :especie_id, :genero, :recinto_id, :observacoes)
   end
 
   def trata_boolean(string)
