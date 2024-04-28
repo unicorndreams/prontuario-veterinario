@@ -1,6 +1,6 @@
 class AnimaisController < ApplicationController
   before_action :set_filtro, only: :index
-  before_action :set_animal, only: [:edit, :update, :destroy, :historic, :edit_status_animal, :update_status_animal]
+  before_action :set_animal, only: [:edit, :update, :destroy, :historic]
 
   def index  
     @animais = current_user
@@ -54,21 +54,6 @@ class AnimaisController < ApplicationController
     end
   end
 
-  def edit_status_animal
-  end
-
-  def update_status_animal
-    respond_to do |format|
-      animal_params = params[:animal]
-
-      if @animal.update(recinto_id: animal_params[:recinto_id], observacoes: animal_params[:observacoes], status: animal_params[:status])
-        format.html { redirect_to animais_path }
-      else
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("error", partial: "shared/error", locals: { error: "Ocorreu um erro ao atualizar o status do animal." }) }
-      end
-    end
-  end
-
   def historic
     @historicos_animal = PaperTrail::Version.where(item_id: @animal.id, item_type: "Animal").order(created_at: :desc)
   end
@@ -86,7 +71,7 @@ class AnimaisController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:identificador, :especie_id, :genero, :recinto_id, :observacoes)
+    params.require(:animal).permit(:identificador, :especie_id, :genero, :recinto_id, :observacoes, :status)
   end
 
   def trata_boolean(string)
