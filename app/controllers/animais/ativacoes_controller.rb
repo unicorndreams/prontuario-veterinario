@@ -1,4 +1,4 @@
-class AtivacaoAnimaisController < ApplicationController
+class Animais::AtivacoesController < ApplicationController
   before_action :set_animal, only: :update
 
   def update

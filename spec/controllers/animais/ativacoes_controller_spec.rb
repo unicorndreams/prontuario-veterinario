@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AtivacaoAnimaisController, type: :controller do
+RSpec.describe Animais::AtivacoesController, type: :controller do
   let(:user) { create(:user) }
   let(:animal) { create(:animal, user: user) }
 

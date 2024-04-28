@@ -27,7 +27,10 @@ Rails.application.routes.draw do
       get :limpar_filtro
     end
   end
-  resources :ativacao_animais, only: :update
+
+  namespace :animais do
+    resources :ativacao, only: :update, controller: "ativacoes"
+  end
   
   get "animais/:id/historic", to: "animais#historic", as: "historicos_animal"
   get "animais/:id/edit_status_animal", to: "animais#edit_status_animal", as: "edit_status_animal"
