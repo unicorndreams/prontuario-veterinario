@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   namespace :animais do
     resources :ativacao, only: :update, controller: "ativacoes"
-    resources :atualizacao_status, only: [:edit, :update], controller: "atualizacoes_status"
+    resources :atualizacoes_status, only: [:edit, :update]
     resources :historicos, only: :show
   end
 end
