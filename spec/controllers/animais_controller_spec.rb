@@ -81,7 +81,7 @@ RSpec.describe AnimaisController, type: :controller do
     context 'with valid attributes' do
       let(:especie) { create(:especie) }
       let(:recinto) { create(:recinto) }
-      let(:animal_params) { { identificador: 'XJDKF', especie_id: especie.id, recinto: recinto.id, genero: 1 } }
+      let(:animal_params) { { identificador: 'XJDKF', especie_id: especie.id, recinto_id: recinto.id, genero: 1 } }
 
       it 'creates a new animal' do
         expect {

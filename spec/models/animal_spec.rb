@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Animal, type: :model do
   describe "associations" do
     it { is_expected.to belong_to(:especie) }
-    it { is_expected.to belong_to(:recinto).optional }
+    it { is_expected.to belong_to(:recinto) }
     it { is_expected.to belong_to(:user) }
     it { is_expected.to have_many(:historicos_animal).dependent(:destroy) }
   end
