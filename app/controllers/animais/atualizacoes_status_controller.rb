@@ -23,8 +23,4 @@ class Animais::AtualizacoesStatusController < ApplicationController
   def set_animal
     @animal = current_user.animais.find(params[:id])
   end
-
-  def trata_boolean(string)
-    ActiveRecord::Type::Boolean.new.cast(string)
-  end
 end
