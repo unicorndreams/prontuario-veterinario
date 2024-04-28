@@ -24,13 +24,13 @@
       </div>
       <div class="form-group col-md-5">
         <%= form.label :recinto, class: "small-font font-weight-bold" %>
-        <%= form.collection_select :recinto_id, Recinto.all, :id, :nome, { include_blank: "Selecione um recinto" }, { class: "form-select small-font" } %>
+        <%= form.collection_select :recinto_id, Recinto.all, :id, :nome, { include_blank: "Selecione um recinto" }, { class: "form-select small-font", disabled: @animal.new_record? ? false : true } %>
       </div>
     </div>
     <div class="row mt-2">
       <div class="form-group col-md-5">
         <%= form.label :status, class: "small-font font-weight-bold" %>
-        <%= form.select :status, Animal.status.options, { selected: @animal.new_record? ? "triagem" : @animal.status }, { class: "form-select small-font", disabled: true } %>
+        <%= form.select :status, Animal.status.options, { selected: @animal.new_record? ? "triagem" : @animal.status }, { class: "form-select small-font", disabled: @animal.new_record? ? false : true } %>
       </div>
     </div>
   </div>
