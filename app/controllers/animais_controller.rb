@@ -1,6 +1,6 @@
 class AnimaisController < ApplicationController
   before_action :set_filtro, only: :index
-  before_action :set_animal, only: [:edit, :update, :destroy, :historic]
+  before_action :set_animal, only: [:edit, :update, :destroy]
 
   def index  
     @animais = current_user
@@ -53,11 +53,6 @@ class AnimaisController < ApplicationController
       end
     end
   end
-
-  def historic
-    @historicos_animal = PaperTrail::Version.where(item_id: @animal.id, item_type: "Animal").order(created_at: :desc)
-  end
-
 
   def limpar_filtro
     session.delete(:filtros)

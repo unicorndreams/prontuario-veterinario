@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   namespace :animais do
     resources :ativacao, only: :update, controller: "ativacoes"
     resources :atualizacao_status, only: [:edit, :update], controller: "atualizacoes_status"
+    resources :historicos, only: :show
   end
-  
-  get "animais/:id/historic", to: "animais#historic", as: "historicos_animal"
 end
