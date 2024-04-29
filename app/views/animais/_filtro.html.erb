@@ -18,7 +18,7 @@
       <div class="row mt-2">
         <div class="form-group col-md-4">
           <%= form.label :recinto, class: "small-font font-weight-bold" %>
-          <%= form.collection_select :recinto_id, Recinto.all, :id, :nome, { selected: @filtros[:recinto_id], include_blank: "Selecione o recinto" }, { class: "form-select small-font" } %>
+          <%= form.collection_select :recinto_id, @current_user.recintos, :id, :nome, { selected: @filtros[:recinto_id], include_blank: "Selecione o recinto" }, { class: "form-select small-font" } %>
         </div>
         <div class="form-group col-md-4">
           <%= form.label :status, class: "small-font font-weight-bold" %>
