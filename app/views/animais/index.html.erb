@@ -1,18 +1,19 @@
 <div class="row mt-4">
+  <div class="col-md-6 d-flex align-items-center">
+    <h1 class="title">Animais</h1>
+  </div>
+</div>
+
+<div class="row mt-4">
   <%= render "filtro" %>
 </div>
 
 <div class="row mt-5">
-  <div class="col-md-6 d-flex align-items-center">
-    <h1 class="title">Animais</h1>
-  </div>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <%= link_to new_animal_path, data: { turbo: false, controller: "animal-modal" }, class: "btn btn-default float-end small-font" do %>
       Cadastrar <i class="fa-solid fa-circle-plus"></i>
     <% end %>
   </div>
-
-  <div id="error"></div>
 </div>
 
 <div class="table-responsive mt-3 mb-5">
