@@ -8,7 +8,7 @@
         </div>
         <div class="form-group col-md-4">
           <%= form.label "Espécie", class: "small-font font-weight-bold" %>
-          <%= form.collection_select :especie_id, Especie.all, :id, :nome, { selected: @filtros[:especie_id], include_blank: "Selecione a espécie" }, { class: "form-select small-font" } %>
+          <%= form.collection_select :especie_id, @current_user.especies, :id, :nome, { selected: @filtros[:especie_id], include_blank: "Selecione a espécie" }, { class: "form-select small-font" } %>
         </div>
         <div class="form-group col-md-4">
           <%= form.label "Gênero", class: "small-font font-weight-bold" %>
