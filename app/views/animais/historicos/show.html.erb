@@ -32,3 +32,40 @@
     </tbody>
   </table>
 <% end %>
+
+<div class="row mt-3">
+  <div class="col-md-6 d-flex align-items-center">
+    <h1 class="title">Histórico - <%= @animal.identificador %></h1>
+  </div>
+</div>
+
+<% @historicos_animal.each do |historico| %>
+  <div class="table-responsive small-font mt-3 mb-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-md-2"><%= formata_data_hora(historico.created_at)%></th>
+          <th class="col-md-2">Dado alterado</th>
+          <th class="col-md-2">De</th>
+          <th class="col-md-2">Para</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="historicos_animal_list">
+        <% historico.object_changes.each do |dado_alterado, alteracoes| %>
+          <% dado_alterado_formatado = formata_descricao_dado_alterado(dado_alterado) %>
+
+          <% if dado_alterado_formatado.present? %>
+            <tr id="historico-animal-<%= historico.id %>">
+              <td class="col-md-2"></td>
+              <td class="col-md-2"><%= dado_alterado_formatado %></td>
+              <td class="col-md-2"><%= formata_valor_dado_alterado(dado_alterado, alteracoes[0]) %></td>
+              <td class="col-md-2"><%= formata_valor_dado_alterado(dado_alterado, alteracoes[1]) %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
