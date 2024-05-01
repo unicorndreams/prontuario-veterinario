@@ -21,7 +21,7 @@
         <% else %>
           <%= link_to "Ativar cadastro", animais_ativacao_path(animal, ativo: true), data: { turbo_method: :patch }, class: "dropdown-item small-font" %>
         <% end %>
-        <%= link_to "Excluir cadastro", animal_path(animal), data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este animal?" }, class: "dropdown-item small-font" %>
+        <%= link_to "Excluir", animal_path(animal), data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este animal?" }, class: "dropdown-item small-font" %>
       </ul>
     </div>
   </td>
