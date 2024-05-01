@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :especies, except: [:show]
   resources :recintos, except: [:show]
 
-  resources :animais, except: [:show] do
+  resources :animais do
     collection do
       get :limpar_filtro
     end

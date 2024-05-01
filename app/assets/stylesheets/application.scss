@@ -106,6 +106,17 @@ body {
   border-color: #777676;
 }
 
+.table-white > thead > tr > th,
+.table-white > tbody > tr > td,
+.table-white > tbody > tr > th {
+  background-color: white;
+  border-color: initial;
+}
+
 .table-animais {
   min-height: 300px;
+}
+
+.card-header {
+  background-color: #FFFFFF;
 }

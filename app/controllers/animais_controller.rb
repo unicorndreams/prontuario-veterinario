@@ -19,6 +19,10 @@ class AnimaisController < ApplicationController
     @animal = current_user.animais.new
   end
 
+  def show
+    @animal = current_user.animais.includes(:historicos_animal).find(params[:id])
+  end
+
   def edit
   end
 

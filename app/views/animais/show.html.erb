@@ -1,0 +1,52 @@
+<div class="card mt-4">
+  <h5 class="card-header title">Informações Gerais</h5>
+  <div class="card-body">
+    <p class="small-font mb-2"><strong>Identificador:</strong> <%= @animal.identificador %></p>
+    <p class="small-font mb-2"><strong>Espécie:</strong> <%= @animal.especie.nome %></p>
+    <p class="small-font mb-2"><strong>Gênero:</strong> <%= @animal.genero.text %></p>
+    <p class="small-font mb-2"><strong>Recinto:</strong> <%= @animal.recinto.nome %></p>
+    <p class="small-font mb-2"><strong>Status:</strong> <%= @animal.status.text %></p>
+    <p class="small-font mb-2"><strong>Observações:</strong> <%= @animal.observacoes %></p>
+  </div>
+</div>
+
+<div class="card mt-4 mb-4">
+  <h5 class="card-header title">Histórico</h5>
+  <div class="card-body">
+    <% historicos =  @animal.versions.order(created_at: :desc) %>
+    <% if historicos.present? %>
+      <% historicos.each do |historico| %>
+        <div class="table-responsive small-font">
+          <table class="table table-white mb-5">
+            <thead>
+              <tr>
+                <th class="col-md-2"><%= formata_data_hora(historico.created_at)%></th>
+                <th class="col-md-2">Dado alterado</th>
+                <th class="col-md-2">De</th>
+                <th class="col-md-2">Para</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="historicos_animal_list">
+              <% historico.object_changes.each do |dado_alterado, alteracoes| %>
+                <% dado_alterado_formatado = formata_descricao_dado_alterado(dado_alterado) %>
+
+                <% if dado_alterado_formatado.present? %>
+                  <tr id="historico-animal-<%= historico.id %>">
+                    <td class="col-md-2"></td>
+                    <td class="col-md-2"><%= dado_alterado_formatado %></td>
+                    <td class="col-md-2"><%= formata_valor_dado_alterado(dado_alterado, alteracoes[0]) %></td>
+                    <td class="col-md-2"><%= formata_valor_dado_alterado(dado_alterado, alteracoes[1]) %></td>
+                    <td></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="small-font">Ainda não atualizações no histórico deste animal.</p>
+    <% end %>
+  </div>
+</div>

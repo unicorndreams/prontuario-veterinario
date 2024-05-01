@@ -13,6 +13,7 @@
     <div class="dropdown">
       <i class="fa-solid fa-ellipsis none-dropdown-toggle icon-custom" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="float: right"></i>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <%= link_to "Visualizar", animal_path(animal), data: { turbo: false }, class: "dropdown-item small-font" %>
         <% if animal.ativo? %>
           <%= link_to "Editar", edit_animal_path(animal), data: { turbo: false, controller: "animal-modal" }, class: "dropdown-item small-font" %>
           <%= link_to "Atualizar status", edit_animais_atualizacoes_status_path(animal), data: { turbo: false, controller: "animal-status-modal" }, class: "dropdown-item small-font" %>
