@@ -1,0 +1,33 @@
+<%# The container tag
+  - available local variables
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+    paginator:     the paginator that renders the pagination tags inside
+-%>
+<%= paginator.render do -%>
+  <nav aria-label="Navegação da página">
+    <ul class="pagination">
+      <% unless current_page.first? %>
+        <li class="page-item">
+          <%= link_to raw("&laquo;"), url_for(page: current_page.number - 1), class: 'page-link', aria: { label: 'Anterior' } %>
+        </li>
+      <% end %>
+      <% each_page do |page| -%>
+        <% if page.display_tag? -%>
+          <li class="page-item<%= ' active' if page.current? %>">
+            <%= link_to page.number, url_for(page: page.number), class: 'page-link' %>
+          </li>
+        <% elsif !page.was_truncated? -%>
+          <%= gap_tag %>
+        <% end -%>
+      <% end -%>
+      <% unless current_page.last? %>
+        <li class="page-item">
+          <%= link_to raw("&raquo;"), url_for(page: current_page.number + 1), class: 'page-link', aria: { label: 'Próximo' } %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+<% end -%>

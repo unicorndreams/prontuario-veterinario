@@ -87,3 +87,5 @@ gem "enumerize"
 
 gem "paper_trail"
 gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem 'kaminari'
