@@ -11,13 +11,13 @@
     <ul class="pagination">
       <% unless current_page.first? %>
         <li class="page-item">
-          <%= link_to raw("&laquo;"), url_for(page: current_page.number - 1), class: 'page-link', aria: { label: 'Anterior' } %>
+          <%= link_to raw("&laquo;"), url_for(page: current_page.number - 1), class: 'page-link page-link-default', aria: { label: 'Anterior' } %>
         </li>
       <% end %>
       <% each_page do |page| -%>
         <% if page.display_tag? -%>
           <li class="page-item<%= ' active' if page.current? %>">
-            <%= link_to page.number, url_for(page: page.number), class: 'page-link' %>
+            <%= link_to page.number, url_for(page: page.number), class: 'page-link page-link-default' %>
           </li>
         <% elsif !page.was_truncated? -%>
           <%= gap_tag %>
@@ -25,7 +25,7 @@
       <% end -%>
       <% unless current_page.last? %>
         <li class="page-item">
-          <%= link_to raw("&raquo;"), url_for(page: current_page.number + 1), class: 'page-link', aria: { label: 'Próximo' } %>
+          <%= link_to raw("&raquo;"), url_for(page: current_page.number + 1), class: 'page-link page-link-default', aria: { label: 'Próximo' } %>
         </li>
       <% end %>
     </ul>

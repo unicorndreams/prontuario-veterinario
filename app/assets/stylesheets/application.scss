@@ -123,4 +123,11 @@ body {
 
 .pagination .page-link {
   font-size: 12px;
+  color: #2F4D0B;
+}
+
+.page-link.active, .active > .page-link {
+  background-color: #2F4D0B;
+  color: #FFFFFF;
+  border-color: #2F4D0B;
 }
