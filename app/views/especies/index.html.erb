@@ -11,7 +11,7 @@
   <div id="error"></div>
 </div>
 
-<table class="table small-font mt-3">
+<table class="table small-font mt-3 mb-5">
   <thead>
     <tr>
       <th>Nome</th>
@@ -24,3 +24,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="d-flex justify-content-center mb-5">
+  <%= paginate @especies %>
+</div>

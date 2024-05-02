@@ -2,7 +2,7 @@ class EspeciesController < ApplicationController
   before_action :set_especie, only: [:edit, :update, :destroy]
 
   def index
-    @especies = current_user.especies.order(:nome)
+    @especies = current_user.especies.order(:nome).page(params[:page] || 1).per(30)
   end
 
   def new
