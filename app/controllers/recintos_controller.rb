@@ -2,7 +2,7 @@ class RecintosController < ApplicationController
   before_action :set_recinto, only: [:edit, :update, :destroy]
 
   def index
-    @recintos = current_user.recintos.order(:nome)
+    @recintos = current_user.recintos.order(:nome).page(params[:page] || 1).per(30)
   end
 
   def new
