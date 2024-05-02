@@ -243,3 +243,7 @@ pt-BR:
     aguardando_soltura: "Aguardando soltura"
     soltura: "Soltura"
     obito: "Óbito"
+  
+  views:
+    pagination:
+      truncate: ""
