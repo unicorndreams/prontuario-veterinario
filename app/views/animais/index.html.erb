@@ -35,4 +35,17 @@
       <% end %>
     </tbody>
   </table>
+
+  <div class="d-flex justify-content-center mt-5">
+    <%= paginate @animais, params: { 
+      identificador: @filtros[:identificador],
+      especie_id: @filtros[:especie_id],
+      genero: @filtros[:genero],
+      recinto_id: @filtros[:recinto_id],
+      status: @filtros[:status],
+      ativo: @filtros[:ativo],
+      commit: "Pesquisar",
+    } %>
+  </div>
 </div>
+

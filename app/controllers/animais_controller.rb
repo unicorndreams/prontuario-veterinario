@@ -2,7 +2,7 @@ class AnimaisController < ApplicationController
   before_action :set_filtro, only: :index
   before_action :set_animal, only: [:edit, :update, :destroy]
 
-  def index  
+  def index
     @animais = current_user
                .animais
                .includes(:especie, :recinto)
@@ -13,6 +13,8 @@ class AnimaisController < ApplicationController
                .por_recinto(@filtros[:recinto_id].to_s)
                .por_status(@filtros[:status].to_s)
                .order(:identificador)
+               .page(params[:page] || 1)
+               .per(30)
   end
 
   def new
