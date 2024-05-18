@@ -15,11 +15,12 @@ module Animais
     def formata_valor_dado_alterado(dado_alterado, alteracao)
       {
         "identificador" => lambda { alteracao.to_s },
-        "especie_id" => lambda { Especie.find_by(id: alteracao)&.nome },
+        "especie_id" => lambda { @current_user.especies.find_by(id: alteracao)&.nome },
         "genero" => lambda { Animal.new(genero: alteracao).genero&.text },
-        "recinto_id" => lambda { Recinto.find_by(id: alteracao)&.nome },
+        "recinto_id" => lambda { @current_user.recintos.find_by(id: alteracao)&.nome },
         "ativo" => lambda { alteracao ? "Sim" : "Não"},
         "status" => lambda { Animal.new(status: alteracao).status&.text },
+        "diagnostico" => lambda { alteracao.to_s },
         "observacoes" => lambda { alteracao.to_s },
       }[dado_alterado].call
     end
