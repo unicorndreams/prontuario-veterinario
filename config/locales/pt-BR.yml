@@ -5,6 +5,7 @@ pt-BR:
         especie: "Espécie"
         genero: "Gênero"
         observacoes: "Observações"
+        diagnostico: "Diagnóstico"
       user:
         password: Senha
         password_challenge: Senha atual

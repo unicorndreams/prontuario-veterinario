@@ -17,7 +17,7 @@ class Animais::AtualizacoesStatusController < ApplicationController
   private
 
   def permitted_params
-    params.require(:animal).permit(:status, :recinto_id, :observacoes)
+    params.require(:animal).permit(:status, :recinto_id, :observacoes, :diagnostico)
   end
 
   def set_animal

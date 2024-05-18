@@ -33,6 +33,12 @@
         <%= form.select :status, Animal.status.options, { selected: @animal.new_record? ? "triagem" : @animal.status }, { class: "form-select small-font", disabled: @animal.new_record? ? false : true } %>
       </div>
     </div>
+    <div class="row mt-2">
+      <div class="form-group col-md-5">
+        <%= form.label :observacoes, class: "small-font font-weight-bold" %>
+         <%= form.text_area :observacoes, class: "form-control small-font" %>
+      </div>
+    </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary small-font" data-bs-dismiss="modal">Cancelar</button>

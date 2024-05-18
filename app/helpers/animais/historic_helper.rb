@@ -8,6 +8,7 @@ module Animais
         "recinto_id" => Animal.human_attribute_name(:recinto),
         "ativo" => Animal.human_attribute_name(:ativo),
         "status" => Animal.human_attribute_name(:status),
+        "diagnostico" => Animal.human_attribute_name(:diagnostico),
         "observacoes" => Animal.human_attribute_name(:observacoes),
       }[dado_alterado]
     end
